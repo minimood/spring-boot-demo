@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.mood</groupId>
+	<artifactId>springboot-demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>springboot-demo</name>
+	<description>Demo project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.15.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.7</java.version>
+	</properties>
+	
+    <!-- 设定主仓库，按设定顺序进行查找。 -->
+	<repositories>
+		<!-- 车边主库 -->
+	  	<repository>
+	        <id>chebian-repos</id>
+	        <name>Chebian Releases</name>
+	        <url>http://192.168.2.241:8081/content/repositories/central/</url>
+	    </repository>
+	    <!-- 车边第三方库 -->
+	    <repository>
+	        <id>chebian-thirdpart</id>
+	        <name>Java Repository</name>
+	        <url>http://192.168.2.241:8081/content/repositories/thirdparty/</url>
+	    </repository>
+	    <repository>
+	        <id>alimaven</id>
+	        <name>aliyun maven</name>
+	        <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+	    </repository>
+	</repositories>
+
+	<!-- 设定插件仓库 -->
+	<pluginRepositories>
+		<!-- 如有Nexus私服, 取消注释并指向正确的服务器地址. -->
+		<pluginRepository>
+			<id>chebian-plugin-repos</id>
+			<name>chebian plugin Releases</name>
+			<url>http://192.168.2.241:8081/content/repositories/central/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+		        <groupId>org.springframework.boot</groupId>
+		        <artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- 热启动 -->
+		<dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-devtools</artifactId>
+        	<optional>true</optional>
+   		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!-- 热启动 -->
+				<configuration>
+                	<fork>true</fork>
+                </configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>
